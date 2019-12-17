@@ -34,7 +34,7 @@ def get_config(setting, config=config):
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-get_config('SECRET_KEY')
+SECRET_KEY = get_config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
