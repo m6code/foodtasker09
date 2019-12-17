@@ -29,7 +29,7 @@ def get_config(setting, config=config):
         return config[setting]
     except KeyError:
         raise ImproperlyConfigured("Set the {} setting".format(setting))
-        
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'foodtaskerapp.apps.FoodtaskerappConfig',
 ]
 
 MIDDLEWARE = [
