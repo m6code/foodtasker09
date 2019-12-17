@@ -1,0 +1,12 @@
+{% extends "foodtaskerapp/base.html" %}
+{% block title %} Sign in {%endblock title%}
+
+{% block content %}
+	<h3>Sign in page</h3>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form }}
+		<button type="submit"> Sign In</button>
+	</form>
+
+{% endblock content %}
