@@ -19,23 +19,26 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Load config file from json
-with open(os.path.join(BASE_DIR, 'config.json')) as config_file:
-    config = json.load(config_file)
+# # Load config file from json
+# with open(os.path.join(BASE_DIR, 'config.json')) as config_file:
+#     config = json.load(config_file)
 
-### Get config settings return error if not found
-def get_config(setting, config=config):
-    """ Get the config setting or fail with ImproperlyConfigured"""
-    try:
-        return config[setting]
-    except KeyError:
-        raise ImproperlyConfigured("Set the {} setting".format(setting))
+# ### Get config settings return error if not found
+# def get_config(setting, config=config):
+#     """ Get the config setting or fail with ImproperlyConfigured"""
+#     try:
+#         return config[setting]
+#     except KeyError:
+#         raise ImproperlyConfigured("Set the {} setting".format(setting))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
+# # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = get_config('SECRET_KEY')
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_config('SECRET_KEY')
+SECRET_KEY = "5_xvu)wl!l%xh@bz-%cb8+4ap*6naq%%enf^_jrlqkl6pp3&2r"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,16 +94,24 @@ WSGI_APPLICATION = 'foodtasker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': get_config('DB_ENGINE'),
-        'NAME': get_config('DB_NAME'),
-        'USER': get_config('DB_USER'),
-        'PASSWORD': get_config('DB_PASS'),
-        'HOST': get_config('DB_HOST'),
-        'PORT': get_config('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': get_config('DB_ENGINE'),
+#         'NAME': get_config('DB_NAME'),
+#         'USER': get_config('DB_USER'),
+#         'PASSWORD': get_config('DB_PASS'),
+#         'HOST': get_config('DB_HOST'),
+#         'PORT': get_config('DB_PORT'),
+#     }
+# }
 
 
 # Password validation
