@@ -21,7 +21,8 @@ body {
 
 /* SIDE BAR */
 .sidebar {
-  height: 100vh;
+  height: 100%;
+  width: 200px;
   position: fixed;
   top: 0;
   left: 0;
@@ -100,3 +101,54 @@ body {
 .content {
   padding: 0 40px;
 }
+
+.text-uppercase{
+	text-transform: uppercase;
+}
+
+.main{
+	margin-left: 200px;
+	padding-left: 16px;
+}
+
+.errorlist {
+	color: red;
+}
+
+
+
+
+/*My Own Custom side bar*/
+.sidenavi {
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 60px;
+	transition: .3s;
+}
+
+.sidenavi a{
+	display: block;
+	text-align: center;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.sidenavi .group{
+	color: white;
+}
+
+.sidenavi span{
+	margin-left: 24px;
+}
+
+.sidenavi .btn{
+	margin-left: 24px;
+	margin-right: 24px;
+}
+
