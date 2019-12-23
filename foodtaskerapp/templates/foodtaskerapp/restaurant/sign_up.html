@@ -1,17 +1,15 @@
 {% extends "foodtaskerapp/base_signup.html" %}
-{% load crispy_forms_tags %}
 {% block title %} Sign Up {%endblock title%}
-{% block heading %} Restaurant - Sign In {% endblock %}
 
 {% block content %}
 	<h3>Sign up page</h3>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<h4>Owner Info</h4>
-		{{ user_form|crispy }}
+		{{ user_form }}
 		<h4>Restaurant Info</h4>
-		{{ restaurant_form|crispy }}
-		<button type="submit"> Sign Up</button>
+		{{ restaurant_form }}
+		<button type="submit" class="btn btn-pink"> Sign Up</button>
 	</form>
 
 {% endblock content %}

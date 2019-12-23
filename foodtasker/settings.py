@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foodtaskerapp.apps.FoodtaskerappConfig',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
