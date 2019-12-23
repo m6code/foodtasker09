@@ -10,7 +10,25 @@ def home(request):
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_home(request):
-	return render(request, 'foodtaskerapp/restaurant/home.html', {})
+	# return render(request, 'foodtaskerapp/restaurant/home.html', {})
+	return redirect(restaurant_account)
+
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_account(request):
+	return render(request, 'foodtaskerapp/restaurant/account.html', {})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_meal(request):
+	return render(request, 'foodtaskerapp/restaurant/meal.html', {})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_order(request):
+	return render(request, 'foodtaskerapp/restaurant/order.html', {})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_report(request):
+	return render(request, 'foodtaskerapp/restaurant/report.html', {})
 
 def restaurant_sign_up(request):
 	user_form = UserForm()
