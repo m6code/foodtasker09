@@ -9,7 +9,16 @@
 	<link rel="stylesheet" href="{% static 'foodtaskerapp/css/style.css' %}">
 </head>
 <body>
-	{% block sidebar%} {% endblock%}
-	{% block content%} {% endblock %}
+	<div class="container">
+		<div class="row">
+			<div class="col s12 s9 s6 s3">
+				<br/>
+				<br/>
+					{% block sidebar%} {% endblock%}
+					{% block content%} {% endblock %}
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
