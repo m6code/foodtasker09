@@ -6,13 +6,16 @@ body {
 
 .bg-blue {
   background-color: #3F3F63;
+  color: white;
 }
 
-.btn-pink {
+.btn-pink, .btn {
   color: white;
   background-color: #EE5462;
 }
 
+.btn:hover,
+.btn:focus,
 .btn-pink:hover,
 .btn-pink:focus {
   color: white;

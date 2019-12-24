@@ -1,17 +1,18 @@
 {% extends 'foodtaskerapp/restaurant/base.html' %}
+{% load materializecss %}
 {% block title %} Restaurant | Account {% endblock title %}
 
-{% block content%}
+{% block content %}
 	<div class="main s8 m4">
-		<div class="card-panel"> <!-- card -->
-			<div class="bg-blue white"> <!-- card-title -->
+		<div class="card"> <!-- card -->
+			<div class="bg-blue"> <!-- card-title -->
 				<h4 class="center"> Account </h4>
 			</div>
 			<div class=""> <!-- card-content -->
 				<form method="POST" enctype="multipart/form-data">
 					{% csrf_token %}
-					{{ user_form_edit }}
-					{{ restaurant_form_edit }}
+					{{ user_form_edit|materializecss }}
+					{{ restaurant_form_edit|materializecss }}
 					<button type="submit" class="btn btn-pink right">Update</button>
 				</form>
 			</div>

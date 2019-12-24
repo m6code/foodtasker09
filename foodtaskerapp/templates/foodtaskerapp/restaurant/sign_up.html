@@ -1,4 +1,5 @@
 {% extends "foodtaskerapp/base_signup.html" %}
+{% load materializecss %}
 {% block title %} Sign Up {%endblock title%}
 
 {% block content %}
@@ -6,10 +7,11 @@
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<h4>Owner Info</h4>
-		{{ user_form }}
+		{{ user_form|materializecss }}
 		<h4>Restaurant Info</h4>
-		{{ restaurant_form }}
+		{{ restaurant_form|materializecss }}
 		<button type="submit" class="btn btn-pink right"> Sign Up</button>
 	</form>
+	<a href="{% url 'restaurant-sign-in' %}">Already have an account? Sign In</a>
 
 {% endblock content %}
