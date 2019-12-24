@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from .forms import UserForm, RestaurantForm , UserFormEdit
+from .forms import UserForm, RestaurantForm , UserFormEdit, MealForm
 
 def home(request):
 	return redirect(restaurant_home)
@@ -35,6 +35,24 @@ def restaurant_account(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_meal(request):
 	return render(request, 'foodtaskerapp/restaurant/meal.html', {})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_add_meal(request):
+	form = MealForm()
+
+	if request.method == "POST":
+		form = MealForm(request.POST, request.FILES)
+
+		if form.is_valid():
+			meal = form.save(commit=False)
+			meal.restaurant = request.user.restaurant
+			meal.save()
+			return redirect(restaurant_meal)
+
+	return render(request, 'foodtaskerapp/restaurant/add_meal.html', {
+		"form": form,
+		})
+
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_order(request):

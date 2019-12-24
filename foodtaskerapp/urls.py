@@ -18,4 +18,7 @@ urlpatterns = [
     path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
     path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
 
+    path('restaurant/meal/add/', views.restaurant_add_meal, name='restaurant-add-meal'),
+    path('restaurant/meal/', views.restaurant_meal, name='restaurant-meal'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

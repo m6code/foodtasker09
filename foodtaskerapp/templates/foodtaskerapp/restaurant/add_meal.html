@@ -1,0 +1,21 @@
+{% extends 'foodtaskerapp/restaurant/base.html' %}
+{% load materializecss %}
+{% block title %} Restaurant | Account {% endblock title %}
+
+{% block content %}
+	<div class="main s8 m4">
+		<div class="card"> <!-- card -->
+			<div class="bg-blue"> <!-- card-title -->
+				<h4 class="center"> Add Meal </h4>
+			</div>
+			<div class=""> <!-- card-content -->
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form|materializecss }}
+				
+					<button type="submit" class="btn btn-pink right">Add</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content%}
