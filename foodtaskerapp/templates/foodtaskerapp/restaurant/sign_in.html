@@ -7,7 +7,7 @@
 	<form method="POST">
 		{% csrf_token %}
 		{{ form }}
-		<button type="submit" class="btn btn-pink"> Sign In</button>
+		<button type="submit" class="btn btn-pink right"> Sign In</button>
 	</form>
 	<a href="{% url 'restaurant-sign-up' %}">Become a Restaurant</a>
 {% endblock content %}
