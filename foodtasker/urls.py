@@ -20,4 +20,10 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('foodtaskerapp.urls')),
+
+     # Sign In/ Sign Up/ Sign Out
+    path('api/social/', include('rest_framework_social_oauth2.urls')),
+    #path('api/auth/', include('django.contrib.auth.urls', namespace='auth')),
+    # /convert-token (sign in/ sign up)
+    # /revoke-token (sign out)
 ]
