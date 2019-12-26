@@ -2,7 +2,55 @@
 {% block title %} Restaurant | Order {% endblock title %}
 
 {% block content%}
-	<div class="main">
-		<h1>Restaurant - Order</h1>
+<div class="main">
+	<div class="card">
+		<div class="card-title bg-blue">
+			<h4 class="center"> Orders </h4>
+		</div>
+		<div class="card-content">
+			<br/>
+			<table class="table striped highlight responsive-table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Order Details</th>
+						<th>Customer </th>
+						<th>Driver</th>
+						<th>Total</th>
+						<th>Status</th>
+						<th>Action</th>
+
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for order in orders %}
+					<tr>
+						<td scope="row">{{ order.id }}</td>
+						<td>
+							{% for od in order.order_details.all %}
+								{{ od.meal.name }} {{ od.meal.price }} 
+								x {{ od.quantity }} = ${{ od.sub_total }}
+							{% endfor %}
+						</td>
+						<td>{{order.customer}}</td>
+						<td>{{order.driver}}</td>
+						<td>{{order.total}}</td>
+						<td>{{order.get_status_display}}</td>
+						<td>
+							{% if order.status == 1%}
+								<form method="POST">
+									{% csrf_token %}
+									<input name="id" value="{{ order.id }}" hidden>
+									<button class="btn green accent-3">Ready</button>
+								</form>
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
+</div>
 {% endblock content%}

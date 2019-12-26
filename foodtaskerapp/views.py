@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 
-from .models import Meal
+from .models import Meal, Order
 from .forms import UserForm, RestaurantForm , UserFormEdit, MealForm
 
 def home(request):
@@ -77,7 +77,15 @@ def restaurant_edit_meal(request, meal_id):
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_order(request):
-	return render(request, 'foodtaskerapp/restaurant/order.html', {})
+	if request.method == "POST":
+		order = Order.objects.get(id = request.POST["id"], restaurant = request.user.restaurant)
+		
+		if order.status == Order.COOKING:
+			order.status = Order.READY
+			order.save()
+
+	orders = Order.objects.filter(restaurant = request.user.restaurant).order_by("-id")
+	return render(request, 'foodtaskerapp/restaurant/order.html', {"orders": orders })
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_report(request):
