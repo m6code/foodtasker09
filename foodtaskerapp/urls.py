@@ -19,6 +19,6 @@ urlpatterns = [
     path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
 
     path('restaurant/meal/add/', views.restaurant_add_meal, name='restaurant-add-meal'),
-    path('restaurant/meal/', views.restaurant_meal, name='restaurant-meal'),
+    path('restaurant/meal/edit/<meal_id>/', views.restaurant_edit_meal, name='restaurant-edit-meal'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
